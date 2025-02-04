@@ -29,7 +29,7 @@ const CategoryItem = React.memo(({ name }: { name: string }) => (
 CategoryItem.displayName = 'CategoryItem';
 
 const StatItem = React.memo(({ value, label }: { value: string; label: string }) => (
-  <div className="text-center lg:text-left">
+  <div className="text-left lg:text-left px-1 md:px-0">
     <p className="text-2xl lg:text-4xl font-bold text-white mb-1">{value}</p>
     <p className="text-indigo-200 text-sm">{label}</p>
   </div>
@@ -44,7 +44,7 @@ const ServiceCard = React.memo(({
   size?: 'small' | 'large';
 }) => {
   const sizeClasses = useMemo(() => 
-    size === 'large' ? 'p-6 lg:p-8 text-xl lg:text-2xl' : 'p-4 lg:p-6 text-lg lg:text-xl',
+    size === 'large' ? 'p-6 lg:p-8 text-xl lg:text-2xl' : 'p-4 lg:p-6 text-xs lg:text-xl',
     [size]
   );
   
@@ -163,11 +163,11 @@ const TechnologyServices = () => {
       <div className="absolute inset-0 opacity-10" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20" />
       
-      <div className="relative max-w-7xl mx-auto px-4 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 mb-12">
           {/* Left Column */}
           <div className="flex flex-col justify-between space-y-8">
-            <div>
+            <div className=''>
               <span className="inline-block text-base font-semibold text-purple-300 mb-2 lg:mb-4 tracking-wider 
                 transform hover:translate-x-2 transition-transform cursor-default">
                 OUR SERVICES
@@ -179,7 +179,7 @@ const TechnologyServices = () => {
                 </span>
               </h2>
             </div>
-            <div className="grid grid-cols-3 gap-4 lg:gap-8">
+            <div className="grid grid-cols-3 gap-8 lg:gap-8 ">
               {stats.map((stat) => (
                 <StatItem key={stat.label} {...stat} />
               ))}
@@ -189,12 +189,12 @@ const TechnologyServices = () => {
           {/* Right Column */}
           <div className="flex flex-col justify-between space-y-8">
             <div className="space-y-6">
-              <p className="text-white/90 text-base lg:text-lg leading-relaxed">
+              <p className="text-white/90 text-base lg:text-lg leading-relaxed px-1 md:px-0">
                 We deliver cutting-edge technology solutions that transform businesses 
                 and create exceptional digital experiences. Our expertise spans across 
                 web, mobile, and enterprise applications.
               </p>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3 md:gap-4 px-1 md:px-0">
                 {categories.map((category) => (
                   <CategoryItem key={category} name={category} />
                 ))}
@@ -208,15 +208,15 @@ const TechnologyServices = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
-          <div className="md:col-span-3 grid grid-cols-2 md:grid-cols-1 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4">
+          <div className="md:col-span-3 grid grid-cols-2 md:grid-cols-1 gap-2 md:gap-4">
             <ServiceCard item={services[0]} />
             <ServiceCard item={services[1]} />
           </div>
           <div className="md:col-span-6">
             <ServiceCard item={services[2]} size="large" />
           </div>
-          <div className="md:col-span-3 grid grid-cols-2 md:grid-cols-1 gap-4">
+          <div className="md:col-span-3 grid grid-cols-2 md:grid-cols-1 gap-2 md:gap-4">
             <ServiceCard item={services[3]} />
             <ServiceCard item={services[4]} />
           </div>

@@ -210,7 +210,7 @@ const ProjectPortfolio: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-black to-blue-900/10 py-8 px-4 mb-20">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8 md:mb-12">
         <div className="inline-block">
             <div className="inline-flex items-center justify-center px-4 py-1.5 mb-6 border border-purple-500/30 rounded-full bg-purple-500/10 backdrop-blur-sm">
               <span className="text-sm text-purple-300 font-medium">Our Development</span>
@@ -221,13 +221,13 @@ const ProjectPortfolio: React.FC = () => {
             Project Portfolio
             </span>
           </h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-300 text-base md:text-lg max-w-2xl mx-auto px-2 md:px-0">
             Explore innovative solutions that push the boundaries of technology, 
             delivering transformative digital experiences across web, mobile, and enterprise platforms.
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-10 md:mb-12">
           <button
             onClick={() => setSelectedCategory(null)}
             className={`
@@ -244,7 +244,7 @@ const ProjectPortfolio: React.FC = () => {
               key={category}
               onClick={() => setSelectedCategory(category)}
               className={`
-                px-4 py-2 rounded-full text-sm font-medium transition-all duration-300
+                px-3 md:px-4 py-2 rounded-full text-sm font-medium transition-all duration-300
                 ${selectedCategory === category 
                   ? 'bg-purple-950 text-white' 
                   : 'bg-white/10 text-gray-300 hover:bg-white/20'}
@@ -255,7 +255,7 @@ const ProjectPortfolio: React.FC = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 md:gap-6 px-6 md:px-0">
           {filteredProjects.map((project) => (
             <ProjectCard 
               key={project.id} 

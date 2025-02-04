@@ -148,17 +148,20 @@ const MusicServicesHero: React.FC = () => {
           <div className={`transform transition-all duration-1000 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
           }`}>
-            <h1 className="mb-2 flex items-center justify-center gap-3 text-xl font-light tracking-wider text-purple-200">
-              <LaptopMinimal className="animate-pulse" size={24} />
-              <span>Discover your tech potential with ABResh</span>
-              <WebcamIcon className="animate-pulse" size={24} />
+            <h1 className="mb-2 flex items-center justify-center gap-3 text-lg font-normal tracking-wide sm:text-xl  text-purple-200">
+              
+              <span>Discover your tech potential with ABResh
+
+              <WebcamIcon className="inline-block animate-pulse ml-2" size={20} />
+              </span>
+              
             </h1>
           </div>
 
           <div className={`mt-6 transform transition-all duration-1000 delay-300 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}>
-            <h2 className="animate-gradient bg-gradient-to-r from-purple-200 via-white to-purple-200 bg-clip-text bg-300% text-6xl md:text-[120px] font-bold tracking-tight text-transparent pb-3">
+            <h2 className="animate-gradient bg-gradient-to-r from-purple-200 via-white to-purple-200 bg-clip-text bg-300% text-6xl sm:text-[120px] font-bold tracking-tight text-transparent pb-3">
               IT Services
             </h2>
           </div>
@@ -166,20 +169,20 @@ const MusicServicesHero: React.FC = () => {
           <div className={`transform transition-all duration-1000 delay-500 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
           }`}>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-purple-100/90 sm:text-xl">
+            <p className="mx-auto mt-4 max-w-2xl text-[15px] sm:text-lg text-purple-100/90 md:text-xl px-2 md:px-0">
             Innovate, automate, and elevate your digital experience with cutting-edge solutions tailored to your needs.
             </p>
           </div>
 
-          <div className={`mt-10 flex justify-center gap-4 transform transition-all duration-1000 delay-700 ${
+          <div className={`mt-10 flex justify-center gap-3 md:gap-4 transform transition-all duration-1000 delay-700 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
           }`}>
-            <button className="group relative overflow-hidden rounded-full bg-[#313131] px-8 py-3 font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25">
-              <span className="relative z-10">Explore Services</span>
+            <button className="group relative overflow-hidden rounded-full bg-[#313131] px-6 sm:px-8 py-3 font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25">
+              <span className="relative z-10">Get Started</span>
               <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-purple-400 to-purple-600 transition-transform duration-300 group-hover:translate-x-0" />
             </button>
 
-            <button className="rounded-full border border-purple-400/30 px-8 py-3 font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-purple-400/10 hover:border-purple-400/50">
+            <button className="rounded-full border border-purple-400/30 px-6 sm:px-8 py-3 font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-purple-400/10 hover:border-purple-400/50">
               View Pricing
             </button>
           </div>

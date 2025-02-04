@@ -72,11 +72,11 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="relative bg-gradient-to-b from-purple-500/5 via-transparent to-transparent py-20 lg:py-24 mb-12 px-4 overflow-hidden">
+    <section className="relative bg-gradient-to-b from-purple-500/5 via-transparent to-transparent py-20 lg:py-24 mb-4 md:mb-12 px-4 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-purple-500/5 via-transparent to-transparent" />
       
       <div className="max-w-7xl mx-auto relative">
-        <div className="text-center mb-14">
+        <div className="text-center mb-10 md:mb-14">
         <div className="inline-block">
             <div className="inline-flex items-center justify-center px-4 py-1.5 mb-6 border border-purple-500/30 rounded-full bg-purple-500/10 backdrop-blur-sm">
               <span className="text-sm text-purple-300 font-medium">Why Choose Us</span>
@@ -92,7 +92,7 @@ const WhyChooseUs = () => {
             </span>
           </h2>
           
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto">
             Partner with us to build scalable, innovative solutions that drive your business forward. 
             Our expertise in cutting-edge technologies ensures your success.
           </p>

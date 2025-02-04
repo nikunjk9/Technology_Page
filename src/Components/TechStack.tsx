@@ -32,7 +32,7 @@ const TechStackSection = () => {
     <section className="bg-black py-24">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-16">
           <span className="inline-flex items-center justify-center px-4 py-1.5 mb-6 border border-purple-500/30 rounded-full bg-purple-500/10 backdrop-blur-sm">
             <span className="text-sm text-purple-300 font-medium">
               Our Technology Stack
@@ -40,16 +40,16 @@ const TechStackSection = () => {
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
             Cutting-edge TechStack
-            <span className="block mt-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent pb-1">for Modern Solutions</span>
+            <span className="block mt-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent md:pb-1">for Modern Solutions</span>
           </h2>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            We leverage the latest technologies to build scalable, secure, and high-performance applications
+          <p className="text-base md:text-lg text-gray-300 max-w-2xl mx-auto px-2 md:px-0">
+            We leverage  latest technologies to build scalable, secure, and high-performance applications
             that meet your business needs.
           </p>
         </div>
 
         {/* Tech Stack Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-3 md:px-0">
           {/* Frontend Stack */}
           <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10">
             <div className="flex items-center gap-3 mb-6">

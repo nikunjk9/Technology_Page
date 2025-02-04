@@ -91,14 +91,14 @@ const ProjectStartCTA: React.FC = () => {
       />
       
       <div 
-        className="relative py-32 px-6"
+        className="relative py-24 md:py-32 px-6"
         onMouseMove={handleMouseMove}
       >
         <div className="max-w-7xl mx-auto">
           {/* Floating Elements */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <Send className="absolute top-1/4 left-1/4 w-8 h-8 text-purple-500 animate-pulse" />
-            <Rocket className="absolute top-1/3 right-1/4 w-8 h-8 text-purple-500 animate-bounce" />
+            <Send className="absolute top-1/4 left-1/4 w-6 h-6 md:w-8 md:h-8 text-purple-500 animate-pulse" />
+            <Rocket className="absolute mt-10 md:mt-0 top-1/3 right-1/4 w-6 h-6 md:w-8 md:h-8 text-purple-500 animate-bounce" />
             <LucideStar className="absolute bottom-1/3 right-1/4 w-8 h-8 text-purple-400 animate-pulse" />
           </div>
 
@@ -117,7 +117,7 @@ const ProjectStartCTA: React.FC = () => {
                 </span>
               </h2>
               
-              <p className="text-zinc-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+              <p className="text-zinc-400 text-base md:text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed">
                 We&apos;re excited to hear about your project. Whether it&apos;s a groundbreaking 
                 tech solution or a transformative digital experience, our team is ready 
                 to bring your ideas to life.
@@ -137,7 +137,7 @@ const ProjectStartCTA: React.FC = () => {
               `} />
               
               <button className={`
-                relative flex items-center gap-3 px-8 py-4 rounded-xl
+                relative flex items-center gap-3 px-6 md:px-8 py-4 rounded-xl
                 text-lg font-medium transition-all duration-300
                 ${isHovered 
                   ? 'bg-gradient-to-r from-purple-600 via-purple-500 to-purple-600 text-white transform -translate-y-1' 
@@ -158,10 +158,10 @@ const ProjectStartCTA: React.FC = () => {
                 { label: 'Innovative Approach', description: 'Cutting-edge technologies' }
               ].map((item, index) => (
                 <div key={index} className="text-center group cursor-default">
-                  <div className="text-xl font-semibold text-white mb-2 group-hover:text-purple-400 transition-colors">
+                  <div className="text-[16px] md:text-xl font-semibold text-white mb-2 group-hover:text-purple-400 transition-colors">
                     {item.label}
                   </div>
-                  <div className="text-sm text-zinc-400 group-hover:text-zinc-300 transition-colors">
+                  <div className="text-xs md:text-sm text-zinc-400 group-hover:text-zinc-300 transition-colors">
                     {item.description}
                   </div>
                 </div>
