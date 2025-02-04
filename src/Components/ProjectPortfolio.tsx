@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { Code, X, ArrowRight, Globe } from 'lucide-react';
 import Image from 'next/image';
 
@@ -13,7 +13,6 @@ interface Project {
 }
 
 const projectsData: Project[] = [
-    // Web Development Category
     {
       id: 1,
       name: "ABResh Events Website",
@@ -42,8 +41,6 @@ const projectsData: Project[] = [
         "Integrated machine learning for personalized recommendations"
       ]
     },
-    
-    // Mobile Development Category
     {
       id: 3,
       name: "Used Garments Clothing",
@@ -72,11 +69,14 @@ const projectsData: Project[] = [
         "Integrated wearable device synchronization"
       ]
     },
-  ];
+];
 
-  const ProjectCard: React.FC<{ project: Project; onClick: (project: Project) => void }> = ({ project, onClick }) => (
+const ProjectCard = React.memo<{ project: Project; onClick: (project: Project) => void }>(({ project, onClick }) => {
+  const handleClick = useCallback(() => onClick(project), [project, onClick]);
+
+  return (
     <div 
-      onClick={() => onClick(project)}
+      onClick={handleClick}
       className="group relative bg-gradient-to-br from-slate-900/40 to-slate-900 rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20"
     >
       <div className="h-96">
@@ -87,6 +87,8 @@ const projectsData: Project[] = [
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             priority={false}
+            placeholder="blur"
+            blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
             className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110 brightness-75 group-hover:brightness-90"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-70" />
@@ -105,43 +107,43 @@ const projectsData: Project[] = [
       </div>
     </div>
   );
-  
+});
 
-const ProjectDetail: React.FC<{ project: Project; onClose: () => void }> = ({ project, onClose }) => {
-    return (
+ProjectCard.displayName = 'ProjectCard';
+
+const ProjectDetail = React.memo<{ project: Project; onClose: () => void }>(({ project, onClose }) => {
+  return (
+    <div 
+      className="fixed inset-0 bg-black/95 backdrop-blur-xl z-50 flex items-center justify-center p-4" 
+      onClick={onClose}
+    >
       <div 
-        className="fixed inset-0 bg-black/95 backdrop-blur-xl z-50 flex items-center justify-center p-4" 
-        onClick={onClose}
+        className="relative w-full max-w-5xl bg-gradient-to-br from-blue-900/20 to-black rounded-2xl overflow-hidden shadow-2xl border border-blue-900/30" 
+        onClick={(e) => e.stopPropagation()}
       >
-        <div 
-          className="relative w-full max-w-5xl bg-gradient-to-br from-blue-900/20 to-black rounded-2xl overflow-hidden shadow-2xl border border-blue-900/30" 
-          onClick={(e) => e.stopPropagation()}
+        <button 
+          onClick={onClose}
+          className="absolute top-6 right-6 z-20 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors backdrop-blur-sm group"
+          type="button"
         >
-          <button 
-            onClick={onClose}
-            className="absolute top-6 right-6 z-20 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors backdrop-blur-sm group"
-            type="button"
-          >
-            <X className="w-6 h-6 text-white group-hover:rotate-90 transition-transform" />
-          </button>
-  
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 relative">
-            {/* Image Section - Modified to focus on top of image */}
-            <div className="relative h-[600px] overflow-hidden">
-              <div className="absolute inset-0 ">
-              <Image
-                src={project.imgUrl}
-                alt={project.name}
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                priority={false}
-                className="w-full h-full object-cover object-top transform hover:scale-110 transition-transform duration-700"
-            />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-            </div>
+          <X className="w-6 h-6 text-white group-hover:rotate-90 transition-transform" />
+        </button>
 
-          {/* Project Details Section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 relative">
+          <div className="relative h-[600px] overflow-hidden">
+            <Image
+              src={project.imgUrl}
+              alt={project.name}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority={true}
+              placeholder="blur"
+              blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+              className="w-full h-full object-cover object-top transform hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+          </div>
+
           <div className="p-8 pt-16 bg-gradient-to-br from-blue-900/10 to-black/50 backdrop-blur-xl">
             <div className="space-y-6">
               <div>
@@ -154,7 +156,6 @@ const ProjectDetail: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                 </p>
               </div>
 
-              {/* Technologies */}
               <div>
                 <h3 className="text-xl font-semibold text-purple-400 mb-4 flex items-center gap-2">
                   <Code className="w-5 h-5" />
@@ -172,7 +173,6 @@ const ProjectDetail: React.FC<{ project: Project; onClose: () => void }> = ({ pr
                 </div>
               </div>
 
-              {/* Project Details */}
               <div>
                 <h3 className="text-xl font-semibold text-purple-400 mb-4 flex items-center gap-2">
                   <ArrowRight className="w-5 h-5" />
@@ -195,30 +195,43 @@ const ProjectDetail: React.FC<{ project: Project; onClose: () => void }> = ({ pr
       </div>
     </div>
   );
-};
+});
+
+ProjectDetail.displayName = 'ProjectDetail';
 
 const ProjectPortfolio: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-  const categories = [...new Set(projectsData.map(project => project.category))];
+  const categories = useMemo(() => [...new Set(projectsData.map(project => project.category))], []);
 
-  const filteredProjects = selectedCategory
-    ? projectsData.filter(project => project.category === selectedCategory)
-    : projectsData;
+  const filteredProjects = useMemo(() => 
+    selectedCategory 
+      ? projectsData.filter(project => project.category === selectedCategory)
+      : projectsData,
+    [selectedCategory]
+  );
+
+  const handleProjectClick = useCallback((project: Project) => {
+    setSelectedProject(project);
+  }, []);
+
+  const handleCategorySelect = useCallback((category: string | null) => {
+    setSelectedCategory(category);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-black to-blue-900/10 py-8 px-4 mb-20">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8 md:mb-12">
-        <div className="inline-block">
+          <div className="inline-block">
             <div className="inline-flex items-center justify-center px-4 py-1.5 mb-6 border border-purple-500/30 rounded-full bg-purple-500/10 backdrop-blur-sm">
               <span className="text-sm text-purple-300 font-medium">Our Development</span>
             </div>
           </div>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
             <span className="bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
-            Project Portfolio
+              Project Portfolio
             </span>
           </h1>
           <p className="text-gray-300 text-base md:text-lg max-w-2xl mx-auto px-2 md:px-0">
@@ -229,7 +242,7 @@ const ProjectPortfolio: React.FC = () => {
 
         <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-10 md:mb-12">
           <button
-            onClick={() => setSelectedCategory(null)}
+            onClick={() => handleCategorySelect(null)}
             className={`
               px-4 py-2 rounded-full text-sm font-medium transition-all duration-300
               ${selectedCategory === null 
@@ -242,7 +255,7 @@ const ProjectPortfolio: React.FC = () => {
           {categories.map(category => (
             <button
               key={category}
-              onClick={() => setSelectedCategory(category)}
+              onClick={() => handleCategorySelect(category)}
               className={`
                 px-3 md:px-4 py-2 rounded-full text-sm font-medium transition-all duration-300
                 ${selectedCategory === category 
@@ -260,7 +273,7 @@ const ProjectPortfolio: React.FC = () => {
             <ProjectCard 
               key={project.id} 
               project={project} 
-              onClick={setSelectedProject}
+              onClick={handleProjectClick}
             />
           ))}
         </div>
@@ -275,5 +288,24 @@ const ProjectPortfolio: React.FC = () => {
     </div>
   );
 };
+
+const shimmer = (w: number, h: number) => `
+<svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="g">
+      <stop stop-color="#333" offset="20%" />
+      <stop stop-color="#222" offset="50%" />
+      <stop stop-color="#333" offset="70%" />
+    </linearGradient>
+  </defs>
+  <rect width="${w}" height="${h}" fill="#333" />
+  <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
+  <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
+</svg>`;
+
+const toBase64 = (str: string) => 
+  typeof window === 'undefined'
+    ? Buffer.from(str).toString('base64')
+    : window.btoa(str);
 
 export default ProjectPortfolio;
