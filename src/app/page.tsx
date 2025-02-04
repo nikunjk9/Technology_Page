@@ -1,18 +1,18 @@
 'use client';
 
 import React, { useEffect } from 'react'
-import ContactUs from '../components/ContactUs'
-import Footer from '../components/Footer'
-import HeroSection from '../components/HeroSection'
-import ScrollToTop from '@/components/ScrollToTop'
-import WhyChooseUs from '../components/WhyChooseUs'
-import FAQSection from '../components/FAQs'
-import NewsletterSignup from '../components/NewsletterSignUp'
-import TechPortfolio from '../components/TechServices';
-import TechStackSection from '../components/TechStack';
-import ProjectPortfolio from '../components/ProjectPortfolio';
-import ProjectStartCTA from '../components/ProjectStartCTA';
-import TechTestimonial from '../components/TechTestimonial';
+import ContactUs from '../Components/ContactUs'
+import Footer from '../Components/Footer'
+import HeroSection from '../Components/HeroSection'
+import ScrollToTop from '@/Components/ScrollToTop'
+import WhyChooseUs from '../Components/WhyChooseUs'
+import FAQSection from '../Components/FAQs'
+import NewsletterSignup from '../Components/NewsletterSignUp'
+import TechPortfolio from '../Components/TechServices';
+import TechStackSection from '../Components/TechStack';
+import ProjectPortfolio from '../Components/ProjectPortfolio';
+import ProjectStartCTA from '../Components/ProjectStartCTA';
+import TechTestimonial from '../Components/TechTestimonial';
 
 
 
