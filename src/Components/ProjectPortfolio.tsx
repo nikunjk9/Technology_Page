@@ -17,7 +17,7 @@ const projectsData: Project[] = [
       id: 1,
       name: "ABResh Events Website",
       category: "Web Development",
-      imgUrl: "/images/home.png",
+      imgUrl: "/images/ser4.jpg",
       description: "Scalable online marketplace with advanced product management and payment integration",
       technologies: ["React", "Node.js", "MongoDB", "Stripe"],
       details: [
@@ -31,7 +31,7 @@ const projectsData: Project[] = [
       id: 2,
       name: "Indian sports Foundation",
       category: "Web Development",
-      imgUrl: "/images/aisf.png",
+      imgUrl: "/images/ser2.jpg",
       description: "Comprehensive property listing platform with advanced search and filtering capabilities",
       technologies: ["Next.js", "TypeScript", "PostgreSQL", "GraphQL"],
       details: [
@@ -45,7 +45,7 @@ const projectsData: Project[] = [
       id: 3,
       name: "Used Garments Clothing",
       category: "Mobile Development",
-      imgUrl: "/images/ugm.png",
+      imgUrl: "/images/ser1.jpg",
       description: "Comprehensive mobile app for patient records, scheduling, and telemedicine",
       technologies: ["Flutter", "Firebase", "GraphQL"],
       details: [
@@ -59,7 +59,7 @@ const projectsData: Project[] = [
       id: 4,
       name: "Finance Investment",
       category: "Enterprise Software",
-      imgUrl: "/images/finance1.jpg",
+      imgUrl: "/images/ser3.jpg",
       description: "Advanced fitness and nutrition tracking app with AI-powered personalized recommendations",
       technologies: ["React Native", "TensorFlow", "Firebase"],
       details: [
@@ -89,9 +89,9 @@ const ProjectCard = React.memo<{ project: Project; onClick: (project: Project) =
             priority={false}
             placeholder="blur"
             blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-            className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110 brightness-75 group-hover:brightness-90"
+            className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110 brightness-55 group-hover:brightness-90"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-70" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-80 " />
         </div>
         <div className="absolute inset-x-0 bottom-0 p-6">
           <div className="relative z-10 backdrop-blur-md bg-black/40 p-4 rounded-xl transform transition-all duration-300 border border-white/10">
@@ -114,7 +114,7 @@ ProjectCard.displayName = 'ProjectCard';
 const ProjectDetail = React.memo<{ project: Project; onClose: () => void }>(({ project, onClose }) => {
   return (
     <div 
-      className="fixed inset-0 bg-black/95 backdrop-blur-xl z-50 flex items-center justify-center p-4" 
+      className="fixed inset-0 bg-black/95 backdrop-blur-xl z-50 flex items-center justify-center p-4 " 
       onClick={onClose}
     >
       <div 
@@ -221,12 +221,14 @@ const ProjectPortfolio: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-black to-blue-900/10 py-8 px-4 mb-20">
+    <div className="min-h-screen bg-gradient-to-br from-black via-black to-blue-900/10 py-8 px-4 mb-20 ">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-8 md:mb-12">
+        <div className="text-center mb-8 md:mb-12 ">
           <div className="inline-block">
             <div className="inline-flex items-center justify-center px-4 py-1.5 mb-6 border border-purple-500/30 rounded-full bg-purple-500/10 backdrop-blur-sm">
-              <span className="text-sm text-purple-300 font-medium">Our Development</span>
+              <span className="text-sm text-purple-300 font-medium">
+                Our Development
+              </span>
             </div>
           </div>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
@@ -240,11 +242,11 @@ const ProjectPortfolio: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-10 md:mb-12">
+        <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-10 md:mb-12 ">
           <button
             onClick={() => handleCategorySelect(null)}
             className={`
-              px-4 py-2 rounded-full text-sm font-medium transition-all duration-300
+              px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 
               ${selectedCategory === null 
                 ? 'bg-purple-950 text-white' 
                 : 'bg-white/10 text-gray-300 hover:bg-white/20'}
@@ -257,7 +259,7 @@ const ProjectPortfolio: React.FC = () => {
               key={category}
               onClick={() => handleCategorySelect(category)}
               className={`
-                px-3 md:px-4 py-2 rounded-full text-sm font-medium transition-all duration-300
+                px-3 md:px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 
                 ${selectedCategory === category 
                   ? 'bg-purple-950 text-white' 
                   : 'bg-white/10 text-gray-300 hover:bg-white/20'}
@@ -268,7 +270,7 @@ const ProjectPortfolio: React.FC = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 md:gap-6 px-6 md:px-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 md:gap-6 px-6 md:px-0 ">
           {filteredProjects.map((project) => (
             <ProjectCard 
               key={project.id} 
